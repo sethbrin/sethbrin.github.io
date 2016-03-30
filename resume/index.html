@@ -1,0 +1,92 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="sethbrin的简历">
+    <meta name="keyword"  content="简历 sethbrin">
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <title>我的简历</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <link href="//cdn.bootcss.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+
+    <script>
+function setIframeHeight(iframe) {
+  if (iframe) {
+    var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+    if (iframeWin.document.body) {
+      iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+    }
+  }
+};
+
+
+var config = {
+  'cn': {'pdf': './sethbrin_cn.pdf', 'html': './sethbrin_cn.htm', 'zoom': '1.5'},
+  'en': {'pdf': './sethbrin_en.pdf', 'html': './sethbrin_en.htm', 'zoom': '1.06'},
+};
+var lang = 'cn';
+
+$(document).ready(function() {
+
+$('#resume-frame').load(function() {
+  $('#resume-frame').contents().find('body').css('zoom', config[lang]['zoom']);
+  setIframeHeight(document.getElementById('resume-frame'))
+});
+  $('#resume-select').change(function() {
+    lang = $(this).val();
+    $('#btn-pdf').attr('href', config[lang]['pdf']);
+    $('#resume-frame').attr('src', config[lang]['html']);
+  });
+});
+    </script>
+</head>
+
+<style>
+iframe {
+  border: none;
+}
+</style>
+
+<body>
+<div class="container" style="margin-top:20px;">
+  <div class="row">
+    <div class="col-md-6">
+      <select id="resume-select">
+        <option value="cn">中文</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+
+    <div class="pull-right">
+      <a target="_blank" href="./sethbrin20160329_cn.pdf" class="btn btn-default" id="btn-pdf"><i class="icon-download"></i>查看pdf版</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <iframe src="./sethbrin_cn.htm" width="100%" scrolling="auto" id="resume-frame"></iframe>
+  </div>
+</div>
+
+</body>
+</html>
