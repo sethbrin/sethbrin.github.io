@@ -1,3 +1,8 @@
+/*!
+ * Hux Blog v1.0.0 (http://huxpro.github.io)
+ * Copyright 2016 Hux
+ */
+
 @media (min-width: 1200px) {
   .post-container,
   .sidebar-container {
@@ -94,7 +99,6 @@ article {
 }
 blockquote {
   color: #808080;
-  font-style: italic;
   font-size: 0.95em;
   margin: 20px 0 20px;
 }
