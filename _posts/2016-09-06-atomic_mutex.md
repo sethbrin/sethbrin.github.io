@@ -16,9 +16,13 @@ tags:
 // g++ atomic_mutex.cpp -std=c++11 -lpthread
 
 #include <atomic>
+
 #include <future>
+
 #include <thread>
+
 #include <iostream>
+
 #include <mutex>
 
 #include "../util/util.h"
@@ -76,5 +80,6 @@ int main() {
 }
 
 // atomic ans:20000000  time:0.120518
+
 // mutex ans:20000000  time:0.589251
 {% endhighlight %}
