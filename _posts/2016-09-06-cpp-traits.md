@@ -69,8 +69,6 @@ void reset(C* p = NULL) {
   delete ptr_;
   ptr_ = p;
 }
-}
-}
 
 {% endhighlight %}
 
@@ -88,8 +86,15 @@ class Foo {
 };
 {% endhighlight %}
 上面operator void*() 是类型转换函数，用在
+
+<code>
     Foo foo;
     void* ptr = foo;  // The compiler will call `operator void*` here
+</code>
+
 而对于operator() 是一个函数调用符
+
+<code>
     Foo foo;
     void* ptr = foo();  // The compiler calls `operator()` here
+</code>
