@@ -15,6 +15,7 @@ tags:
 {% highlight cpp %}
 
 // boost
+
 template<class F, class A1, class A2, class A3>
 _bi::bind_t<_bi::unspecified, F, typename _bi::list_av_3<A1, A2, A3>::type>
 BOOST_BIND(F f, A1 a1, A2 a2, A3 a3)
@@ -24,17 +25,18 @@ BOOST_BIND(F f, A1 a1, A2 a2, A3 a3)
 }
 
 // c11
+
 template<typename _Result, typename _Func, typename... _BoundArgs>
-    inline
-    typename _Bindres_helper<_Result, _Func, _BoundArgs...>::type
-    bind(_Func&& __f, _BoundArgs&&... __args)
-    {
-      typedef _Bindres_helper<_Result, _Func, _BoundArgs...> __helper_type;
-      typedef typename __helper_type::__maybe_type __maybe_type;
-      typedef typename __helper_type::type __result_type;
-      return __result_type(__maybe_type::__do_wrap(std::forward<_Func>(__f)),
-         std::forward<_BoundArgs>(__args)...);
-    }
+inline
+typename _Bindres_helper<_Result, _Func, _BoundArgs...>::type
+bind(_Func&& __f, _BoundArgs&&... __args)
+{
+  typedef _Bindres_helper<_Result, _Func, _BoundArgs...> __helper_type;
+  typedef typename __helper_type::__maybe_type __maybe_type;
+  typedef typename __helper_type::type __result_type;
+  return __result_type(__maybe_type::__do_wrap(std::forward<_Func>(__f)),
+      std::forward<_BoundArgs>(__args)...);
+}
 
 {% endhighlight %}
 
