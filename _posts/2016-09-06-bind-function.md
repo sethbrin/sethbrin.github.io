@@ -14,7 +14,7 @@ tags:
 
 {% highlight cpp %}
 
-// boost <br/>
+// boost
 
 template<class F, class A1, class A2, class A3>
 _bi::bind_t<_bi::unspecified, F, typename _bi::list_av_3<A1, A2, A3>::type>
